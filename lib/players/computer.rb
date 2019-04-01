@@ -1,6 +1,7 @@
 module Players
   class Computer < Player
 
+<<<<<<< HEAD
     CENTER = "5"
     CORNERS = ["1","3","7","9"]
 
@@ -18,6 +19,22 @@ module Players
 
       elsif should_block?(board)
         position = Array.new
+=======
+    PREF_MOVE_1 = "5"
+    PREF_MOVE_2 = ["1","3","7","9"]
+    def move(board)
+      # binding.pry
+      if check(board).empty? && !board.taken?(PREF_MOVE_1.to_i)
+        PREF_MOVE_1
+      elsif check(board).empty? && board.taken?(PREF_MOVE_1.to_i)
+        PREF_MOVE_2[rand(1..PREF_MOVE_2.size)]
+      elsif can_win?(board)
+        position = can_win_combo(board).find {|index| board.cells[index] == " "}
+        position + 1
+      elsif should_block?(board)
+        position = Array.new
+                # binding.pry
+>>>>>>> 9c179e345c68b5138e20e58587a37ff7610fe405
         position =
             combos_to_block(board).map do |combo|
               combo.find do |index|
@@ -26,6 +43,7 @@ module Players
             end
             # binding.pry
         position[rand(0..position.size - 1)] + 1
+<<<<<<< HEAD
 
       else
         # binding.pry
@@ -47,6 +65,19 @@ module Players
             board.cells[combo[1]] == board.cells[combo[2]] && board.valid_move?(combo[0] + 1) ||
             board.cells[combo[0]] == board.cells[combo[2]] && board.valid_move?(combo[1] + 1)
           end
+=======
+      else
+        rand(1..9).to_s
+      end
+    end
+
+    def check(board) #returns arrays that include two of same token and one empty space
+      Game::WIN_COMBINATIONS.find_all do |combo|
+        if board.cells[combo[0]] != board.cells[combo[1]] || board.cells[combo[1]] != board.cells[combo[2]]
+          board.cells[combo[0]] == board.cells[combo[1]] && board.valid_move?(combo[2] + 1) ||
+          board.cells[combo[1]] == board.cells[combo[2]] && board.valid_move?(combo[0] + 1) ||
+          board.cells[combo[0]] == board.cells[combo[2]] && board.valid_move?(combo[1] + 1)
+>>>>>>> 9c179e345c68b5138e20e58587a37ff7610fe405
         end
       end
     end
