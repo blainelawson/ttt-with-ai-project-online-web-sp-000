@@ -8,7 +8,7 @@ module Players
       if check(board).empty? && !board.taken?(CENTER.to_i)
         CENTER
       elsif check(board).empty? && board.taken?(CENTER.to_i) #&& !corners_taken?(board)
-        binding.pry
+        # binding.pry
         CORNERS[rand(1..CORNERS.size)]
       elsif can_win?(board)
 
