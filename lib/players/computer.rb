@@ -44,6 +44,7 @@ module Players
             board.cells[combo[1]] == board.cells[combo[2]] && board.valid_move?(combo[0] + 1) ||
             board.cells[combo[0]] == board.cells[combo[2]] && board.valid_move?(combo[1] + 1)
           end
+        end
       end
     end
 
