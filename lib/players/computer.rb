@@ -7,7 +7,7 @@ module Players
     def move(board)
       if check(board).empty? && !board.taken?(CENTER.to_i)
         CENTER
-      elsif check(board).empty? && board.taken?(CENTER.to_i) && !corners_taken?(board)
+      elsif check(board).empty? && board.taken?(CENTER.to_i) #&& !corners_taken?(board)
         binding.pry
         CORNERS[rand(1..CORNERS.size)]
       elsif can_win?(board)
