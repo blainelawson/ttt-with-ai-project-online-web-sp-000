@@ -1,7 +1,6 @@
 module Players
   class Computer < Player
 
-<<<<<<< HEAD
     CENTER = "5"
     CORNERS = ["1","3","7","9"]
 
@@ -45,20 +44,6 @@ module Players
             board.cells[combo[1]] == board.cells[combo[2]] && board.valid_move?(combo[0] + 1) ||
             board.cells[combo[0]] == board.cells[combo[2]] && board.valid_move?(combo[1] + 1)
           end
-=======
-      else
-        rand(1..9).to_s
-      end
-    end
-
-    def check(board) #returns arrays that include two of same token and one empty space
-      Game::WIN_COMBINATIONS.find_all do |combo|
-        if board.cells[combo[0]] != board.cells[combo[1]] || board.cells[combo[1]] != board.cells[combo[2]]
-          board.cells[combo[0]] == board.cells[combo[1]] && board.valid_move?(combo[2] + 1) ||
-          board.cells[combo[1]] == board.cells[combo[2]] && board.valid_move?(combo[0] + 1) ||
-          board.cells[combo[0]] == board.cells[combo[2]] && board.valid_move?(combo[1] + 1)
->>>>>>> 9c179e345c68b5138e20e58587a37ff7610fe405
-        end
       end
     end
 
