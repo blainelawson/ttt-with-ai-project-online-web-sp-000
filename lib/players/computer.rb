@@ -25,7 +25,7 @@ module Players
             # binding.pry
         position[rand(0..position.size - 1)] + 1
       else
-        binding.pry
+        # binding.pry
         rand(1..9)
       end
       # binding.pry
